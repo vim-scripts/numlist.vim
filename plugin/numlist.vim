@@ -1,5 +1,5 @@
 " Filename:    numlist.vim 
-" Discirption: Add/Readd/Remove number to a list items
+" Discirption: Add Re Add Remove id to a list items
 " Last Change: 2011-08-28 
 " Maintainer:  Tian Huixiong   <nedzqbear@gmail.com>
 " Licence:     This script is released under the Vim License.
