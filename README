@@ -41,6 +41,13 @@ This is a mirror of http://www.vim.org/scripts/script.php?script_id=3715
                4. line4                                       line4
                5. line5                                       line5
 
+                         Remove number
+               1  line1     :NoNumberedList   line1 
+               2  line2                                       line2
+               3  line3                                       line3
+               4  line4                                       line4
+               5  line5                                       line5
+
                        Guarantee the same indent
              1. line1     :NoNumberedList     line1 
                2. line2                                       line2

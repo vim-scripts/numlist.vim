@@ -3,7 +3,7 @@
 " Last Change: 2011-08-29 
 " Maintainer:  Tian Huixiong   <nedzqbear@gmail.com>
 " Licence:     This script is released under the Vim License.
-" Version:     1.1
+" Version:     1.2
 " Install:     
 "              Put this file in ~/.vim/plugin on *nux
 "              Or put it in $vim/vimfiles/plugin on Windows
@@ -42,12 +42,19 @@
 "               7. line4                       4. line4
 "               8. line5                       5. line5
 "
-"                         Remove number
+"                         Remove number 1.
 "               1. line1     :NoNumberedList   line1 
 "               2. line2                       line2
 "               3. line3                       line3
 "               4. line4                       line4
 "               5. line5                       line5
+"
+"                       Remove number 1
+"               1 line1     :NoNumberedList   line1 
+"               2 line2                       line2
+"               3 line3                       line3
+"               4 line4                       line4
+"               5 line5                       line5
 "
 "                       Guarantee the same indent
 "             1. line1     :NoNumberedList     line1 
@@ -107,13 +114,15 @@ function! NoNumberLines() range
     for linenum in range(a:firstline, a:lastline)
         call NoNumberLine(linenum, indent)
     endfor
+
     normal gv 
 endfunction
 
 function! NoNumberLine(linenum, indent)
     let line    = getline(a:linenum)
     "let indent  = matchstr(line, '^\s*')
-    let text    = substitute(line, '^\s*\(\d\+\.\{1}\)\?\s*', '', '')
+    "let text    = substitute(line, '^\s*\(\d\+\.\{1}\)\?\s*', '', '')
+    let text    = substitute(line, '^\s*\(\d\+\.\?\)\?\s*', '', '')
     let newline = a:indent . text
     call setline(a:linenum, newline)
 endfunction
