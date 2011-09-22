@@ -3,7 +3,7 @@
 " Last Change: 2011-08-29 
 " Maintainer:  Tian Huixiong   <nedzqbear@gmail.com>
 " Licence:     This script is released under the Vim License.
-" Version:     1.2
+" Version:     1.3
 " Install:     
 "              Put this file in ~/.vim/plugin on *nux
 "              Or put it in $vim/vimfiles/plugin on Windows
@@ -22,8 +22,8 @@
 "               line5                          5. line5
 "
 "                        Numbered from 8
-"               line1      :NumberedList 8     8.  line1 
-"               line2                          9.  line2
+"               line1      :NumberedList 8      8.  line1 
+"               line2                           9.  line2
 "               line3                          10. line3
 "               line4                          11. line4
 "               line5                          12. line5
@@ -102,10 +102,11 @@ endfunction
 
 function! NumberLine(linenum, index, indent, max_width)
     let line    = getline(a:linenum)
-    let width   = a:max_width - strlen(string(a:index)) + 1
+    "let width   = a:max_width - strlen(string(a:index)) + 1
+    let width   = a:max_width - strlen(string(a:index)) 
     "let indent  = matchstr(line, '^\s*')
     let text    = substitute(line, '^\s*\(\d\+\.\{1}\)\?\s*', '', '')
-    let newline = a:indent . string(a:index) . '.' . repeat(' ', width) . text
+    let newline = a:indent . repeat(' ', width) . string(a:index) . '.' . ' ' . text
     call setline(a:linenum, newline)
 endfunction
 
